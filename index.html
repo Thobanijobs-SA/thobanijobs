@@ -1,277 +1,676 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThobaniJobs | Connecting People to Opportunities</title>
-  <meta name="description" content="Find jobs, learnerships, internships and opportunities across South Africa.">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #172033;
-    }
+<title>ThobaniJobs | Find Jobs in South Africa</title>
 
-    header {
-      background: #0b1f3a;
-      color: white;
-      padding: 18px;
-      text-align: center;
-    }
+<meta name="description" content="ThobaniJobs connects South Africans with jobs, learnerships, internships and remote opportunities.">
 
-    header h1 {
-      font-size: 30px;
-      margin-bottom: 6px;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    header p {
-      font-size: 14px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  color: #172033;
+}
 
-    nav {
-      background: white;
-      padding: 12px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+/* HEADER */
+header {
+  background: #0b1f3a;
+  color: white;
+  padding: 18px 15px;
+  text-align: center;
+}
 
-    nav a {
-      color: #0b1f3a;
-      text-decoration: none;
-      margin: 0 8px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
 
-    .hero {
-      background: #0b1f3a;
-      color: white;
-      padding: 45px 20px;
-      text-align: center;
-    }
+.tagline {
+  font-size: 14px;
+  margin-top: 5px;
+}
 
-    .hero h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
+/* NAVIGATION */
+nav {
+  background: white;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    .hero p {
-      font-size: 17px;
-      margin-bottom: 25px;
-    }
+nav a {
+  color: #0b1f3a;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px 8px;
+  display: inline-block;
+}
 
-    .search {
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      gap: 8px;
-    }
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0b1f3a, #173d6b);
+  color: white;
+  text-align: center;
+  padding: 50px 18px;
+}
 
-    .search input {
-      flex: 1;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      font-size: 15px;
-    }
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
 
-    .search button {
-      padding: 14px 20px;
-      border: none;
-      border-radius: 6px;
-      background: #e63946;
-      color: white;
-      font-weight: bold;
-    }
+.hero p {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
 
-    .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 35px 18px;
-    }
+.search-box {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  gap: 8px;
+}
 
-    .section h2 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
+.search-box input,
+.search-box select {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
+.search-box button {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .card {
-      background: white;
-      padding: 25px 15px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
+/* SECTIONS */
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 18px;
+}
 
-    .card h3 {
-      margin-bottom: 8px;
-      color: #0b1f3a;
-    }
+.section-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 25px;
+}
 
-    .card p {
-      font-size: 14px;
-      color: #666;
-    }
+/* CATEGORY CARDS */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
 
-    .cta {
-      background: #e63946;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
+.category {
+  background: white;
+  padding: 22px 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: 0.2s;
+}
 
-    .cta h2 {
-      margin-bottom: 12px;
-    }
+.category:hover {
+  transform: translateY(-3px);
+}
 
-    .cta button {
-      margin-top: 18px;
-      padding: 13px 25px;
-      border: none;
-      border-radius: 6px;
-      background: white;
-      color: #e63946;
-      font-weight: bold;
-    }
+.category .icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
 
-    footer {
-      background: #0b1f3a;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 13px;
-    }
+.category h3 {
+  font-size: 15px;
+}
 
-    @media (max-width: 600px) {
-      .search {
-        flex-direction: column;
-      }
+/* JOB LIST */
+.jobs {
+  display: grid;
+  gap: 15px;
+}
 
-      .hero h2 {
-        font-size: 26px;
-      }
+.job {
+  background: white;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-left: 5px solid #0b1f3a;
+}
 
-      nav a {
-        display: inline-block;
-        margin: 5px;
-      }
-    }
-  </style>
+.job h3 {
+  color: #0b1f3a;
+  margin-bottom: 8px;
+}
+
+.company {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.location {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.job-tag {
+  display: inline-block;
+  background: #eef3f8;
+  color: #0b1f3a;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.apply {
+  margin-top: 15px;
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 11px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* PROVINCES */
+.provinces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.province {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 11px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* EMPLOYER */
+.employer {
+  background: #e63946;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.employer h2 {
+  margin-bottom: 12px;
+}
+
+.employer p {
+  margin-bottom: 20px;
+}
+
+.employer button {
+  background: white;
+  color: #e63946;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: #0b1f3a;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 13px;
+}
+
+footer p {
+  margin: 6px;
+}
+
+/* MOBILE */
+@media(max-width: 650px) {
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>ThobaniJobs</h1>
-  <p>Connecting People to Opportunities</p>
+  <div class="logo">ThobaniJobs</div>
+  <div class="tagline">Connecting People to Opportunities</div>
 </header>
 
 <nav>
-  <a href="#">Home</a>
-  <a href="#">Find Jobs</a>
-  <a href="#">Learnerships</a>
-  <a href="#">Internships</a>
-  <a href="#">Post a Job</a>
+  <a href="#home">Home</a>
+  <a href="#jobs">Find Jobs</a>
+  <a href="#categories">Categories</a>
+  <a href="#employers">Employers</a>
 </nav>
 
-<section class="hero">
-  <h2>Find Your Next Opportunity</h2>
-  <p>Search for jobs, learnerships, internships and more across South Africa.</p>
+<section class="hero" id="home">
 
-  <div class="search">
-    <input type="text" placeholder="Job title, keyword or location">
-    <button>Search Jobs</button>
+  <h1>Find Your Next Opportunity</h1>
+
+  <p>
+    Search jobs, learnerships, internships and remote opportunities across South Africa.
+  </p>
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Job title, company or keyword"
+    >
+
+    <select id="provinceSelect">
+
+      <option value="">All Provinces</option>
+      <option value="Gauteng">Gauteng</option>
+      <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+      <option value="Western Cape">Western Cape</option>
+      <option value="Eastern Cape">Eastern Cape</option>
+      <option value="Free State">Free State</option>
+      <option value="Limpopo">Limpopo</option>
+      <option value="Mpumalanga">Mpumalanga</option>
+      <option value="North West">North West</option>
+      <option value="Northern Cape">Northern Cape</option>
+
+    </select>
+
+    <button onclick="searchJobs()">Search</button>
+
   </div>
+
 </section>
+
+
+<section class="section" id="categories">
+
+<h2 class="section-title">Popular Job Categories</h2>
+
+<div class="categories">
+
+<div class="category" onclick="categorySearch('Accounting')">
+<div class="icon">💰</div>
+<h3>Accounting & Finance</h3>
+</div>
+
+<div class="category" onclick="categorySearch('Construction')">
+<div class="icon">🏗️</div>
+<h3>Construction</h3>
+</div>
+
+<div class="category" onclick="categorySearch('Driving')">
+<div class="icon">🚚</div>
+<h3>Driving</h3>
+</div>
+
+<div class="category" onclick="categorySearch('Retail')">
+<div class="icon">🛒</div>
+<h3>Retail</h3>
+</div>
+
+<div class="category" onclick="categorySearch('Security')">
+<div class="icon">🛡️</div>
+<h3>Security</h3>
+</div>
+
+<div class="category" onclick="categorySearch('Healthcare')">
+<div class="icon">🏥</div>
+<h3>Healthcare</h3>
+</div>
+
+<div class="category" onclick="categorySearch('Internship')">
+<div class="icon">🎓</div>
+<h3>Internships</h3>
+</div>
+
+<div class="category" onclick="categorySearch('Learnership')">
+<div class="icon">📚</div>
+<h3>Learnerships</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="jobs">
+
+<h2 class="section-title">Latest Opportunities</h2>
+
+<div class="jobs" id="jobList">
+
+
+<div class="job">
+
+<h3>Junior Accountant</h3>
+
+<div class="company">
+Thobani Business Services
+</div>
+
+<div class="location">
+📍 Durban, KwaZulu-Natal
+</div>
+
+<span class="job-tag">Accounting</span>
+<span class="job-tag">Entry Level</span>
+
+<br>
+
+<button class="apply" onclick="alert('Application information will be added soon.')">
+View Job
+</button>
+
+</div>
+
+
+<div class="job">
+
+<h3>General Worker</h3>
+
+<div class="company">
+South African Construction Company
+</div>
+
+<div class="location">
+📍 Johannesburg, Gauteng
+</div>
+
+<span class="job-tag">Construction</span>
+<span class="job-tag">No Experience</span>
+
+<br>
+
+<button class="apply" onclick="alert('Application information will be added soon.')">
+View Job
+</button>
+
+</div>
+
+
+<div class="job">
+
+<h3>Code 10 Driver</h3>
+
+<div class="company">
+Transport & Logistics Company
+</div>
+
+<div class="location">
+📍 Pietermaritzburg, KwaZulu-Natal
+</div>
+
+<span class="job-tag">Driving</span>
+<span class="job-tag">Full Time</span>
+
+<br>
+
+<button class="apply" onclick="alert('Application information will be added soon.')">
+View Job
+</button>
+
+</div>
+
+
+<div class="job">
+
+<h3>IT Internship</h3>
+
+<div class="company">
+Technology Company
+</div>
+
+<div class="location">
+📍 Cape Town, Western Cape
+</div>
+
+<span class="job-tag">Internship</span>
+<span class="job-tag">IT</span>
+
+<br>
+
+<button class="apply" onclick="alert('Application information will be added soon.')">
+View Job
+</button>
+
+</div>
+
+
+<div class="job">
+
+<h3>Security Officer</h3>
+
+<div class="company">
+Private Security Company
+</div>
+
+<div class="location">
+📍 Pretoria, Gauteng
+</div>
+
+<span class="job-tag">Security</span>
+<span class="job-tag">Full Time</span>
+
+<br>
+
+<button class="apply" onclick="alert('Application information will be added soon.')">
+View Job
+</button>
+
+</div>
+
+
+<div class="job">
+
+<h3>Business Administration Learnership</h3>
+
+<div class="company">
+South African Training Organisation
+</div>
+
+<div class="location">
+📍 Durban, KwaZulu-Natal
+</div>
+
+<span class="job-tag">Learnership</span>
+<span class="job-tag">Entry Level</span>
+
+<br>
+
+<button class="apply" onclick="alert('Application information will be added soon.')">
+View Job
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
 
 <section class="section">
-  <h2>Explore Opportunities</h2>
 
-  <div class="cards">
+<h2 class="section-title">Jobs by Province</h2>
 
-    <div class="card">
-      <h3>💼 Jobs</h3>
-      <p>Find employment opportunities across South Africa.</p>
-    </div>
+<div class="provinces">
 
-    <div class="card">
-      <h3>🎓 Learnerships</h3>
-      <p>Discover learnership opportunities and start building your career.</p>
-    </div>
+<div class="province" onclick="provinceSearch('Gauteng')">Gauteng</div>
 
-    <div class="card">
-      <h3>🚀 Internships</h3>
-      <p>Find internships that can help you gain valuable experience.</p>
-    </div>
+<div class="province" onclick="provinceSearch('KwaZulu-Natal')">
+KwaZulu-Natal
+</div>
 
-    <div class="card">
-      <h3>🏠 Remote Jobs</h3>
-      <p>Explore opportunities that allow you to work remotely.</p>
-    </div>
+<div class="province" onclick="provinceSearch('Western Cape')">
+Western Cape
+</div>
 
-  </div>
+<div class="province" onclick="provinceSearch('Eastern Cape')">
+Eastern Cape
+</div>
+
+<div class="province" onclick="provinceSearch('Free State')">
+Free State
+</div>
+
+<div class="province" onclick="provinceSearch('Limpopo')">
+Limpopo
+</div>
+
+<div class="province" onclick="provinceSearch('Mpumalanga')">
+Mpumalanga
+</div>
+
+<div class="province" onclick="provinceSearch('North West')">
+North West
+</div>
+
+<div class="province" onclick="provinceSearch('Northern Cape')">
+Northern Cape
+</div>
+
+</div>
+
 </section>
 
-<section class="section">
-  <h2>Popular Job Categories</h2>
 
-  <div class="cards">
+<section class="employer" id="employers">
 
-    <div class="card">
-      <h3>Accounting & Finance</h3>
-      <p>Accounting, finance and administration opportunities.</p>
-    </div>
+<h2>Are You Hiring?</h2>
 
-    <div class="card">
-      <h3>Construction</h3>
-      <p>Construction and skilled trade opportunities.</p>
-    </div>
+<p>
+Connect your company with people looking for opportunities.
+</p>
 
-    <div class="card">
-      <h3>Driving</h3>
-      <p>Driver and transport opportunities.</p>
-    </div>
+<button onclick="alert('Our employer job submission system is coming soon.')">
+Post a Job
+</button>
 
-    <div class="card">
-      <h3>Retail</h3>
-      <p>Retail, sales and customer service opportunities.</p>
-    </div>
-
-    <div class="card">
-      <h3>Healthcare</h3>
-      <p>Healthcare and community service opportunities.</p>
-    </div>
-
-    <div class="card">
-      <h3>No Experience</h3>
-      <p>Opportunities suitable for people starting their careers.</p>
-    </div>
-
-  </div>
 </section>
 
-<section class="cta">
-  <h2>Are You Hiring?</h2>
-  <p>Employers can connect with people looking for opportunities.</p>
-  <button>Post a Job</button>
-</section>
 
 <footer>
-  <p>© 2026 ThobaniJobs. All rights reserved.</p>
-  <p>Connecting People to Opportunities.</p>
+
+<p><strong>ThobaniJobs</strong></p>
+
+<p>Connecting People to Opportunities</p>
+
+<p>© 2026 ThobaniJobs. All rights reserved.</p>
+
+<p>South Africa's growing job opportunity platform.</p>
+
 </footer>
 
+
+<script>
+
+function searchJobs() {
+
+let keyword =
+document.getElementById("searchInput").value.toLowerCase();
+
+let province =
+document.getElementById("provinceSelect").value.toLowerCase();
+
+let jobs =
+document.querySelectorAll(".job");
+
+jobs.forEach(function(job) {
+
+let text =
+job.innerText.toLowerCase();
+
+let matchesKeyword =
+keyword === "" || text.includes(keyword);
+
+let matchesProvince =
+province === "" || text.includes(province);
+
+if(matchesKeyword && matchesProvince) {
+
+job.style.display = "block";
+
+} else {
+
+job.style.display = "none";
+
+}
+
+});
+
+document.getElementById("jobs").scrollIntoView({
+behavior: "smooth"
+});
+
+}
+
+
+function categorySearch(category) {
+
+document.getElementById("searchInput").value = category;
+
+searchJobs();
+
+}
+
+
+function provinceSearch(province) {
+
+document.getElementById("provinceSelect").value = province;
+
+searchJobs();
+
+}
+
+</script>
+
 </body>
-  </html>
+</html>
