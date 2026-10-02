@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,6 +200,10 @@ nav a {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+}
+
+.apply:hover {
+  opacity: 0.9;
 }
 
 /* PROVINCES */
@@ -405,9 +410,8 @@ Thobani Business Services
 
 <br>
 
-<button class="apply" onclick="window.open('https://tally.so/r/WOx64N', '_blank')">
+<button class="apply" onclick="applyForJob('Junior Accountant')">
 Apply Now
-</button>
 </button>
 
 </div>
@@ -430,8 +434,8 @@ South African Construction Company
 
 <br>
 
-<button class="apply" onclick="alert('Application information will be added soon.')">
-View Job
+<button class="apply" onclick="applyForJob('General Worker')">
+Apply Now
 </button>
 
 </div>
@@ -454,8 +458,8 @@ Transport & Logistics Company
 
 <br>
 
-<button class="apply" onclick="alert('Application information will be added soon.')">
-View Job
+<button class="apply" onclick="applyForJob('Code 10 Driver')">
+Apply Now
 </button>
 
 </div>
@@ -478,8 +482,8 @@ Technology Company
 
 <br>
 
-<button class="apply" onclick="alert('Application information will be added soon.')">
-View Job
+<button class="apply" onclick="applyForJob('IT Internship')">
+Apply Now
 </button>
 
 </div>
@@ -502,8 +506,8 @@ Private Security Company
 
 <br>
 
-<button class="apply" onclick="alert('Application information will be added soon.')">
-View Job
+<button class="apply" onclick="applyForJob('Security Officer')">
+Apply Now
 </button>
 
 </div>
@@ -526,8 +530,8 @@ South African Training Organisation
 
 <br>
 
-<button class="apply" onclick="alert('Application information will be added soon.')">
-View Job
+<button class="apply" onclick="applyForJob('Business Administration Learnership')">
+Apply Now
 </button>
 
 </div>
@@ -591,7 +595,7 @@ Northern Cape
 Connect your company with people looking for opportunities.
 </p>
 
-<button onclick="alert('Our employer job submission system is coming soon.')">
+<button onclick="alert('Employer job posting will be available soon.')">
 Post a Job
 </button>
 
@@ -612,6 +616,20 @@ Post a Job
 
 
 <script>
+
+/* TALLY APPLICATION FORM */
+
+function applyForJob(jobTitle) {
+
+  window.open(
+    'https://tally.so/r/WOx64N?job=' + encodeURIComponent(jobTitle),
+    '_blank'
+  );
+
+}
+
+
+/* JOB SEARCH */
 
 function searchJobs() {
 
@@ -654,6 +672,8 @@ behavior: "smooth"
 }
 
 
+/* CATEGORY SEARCH */
+
 function categorySearch(category) {
 
 document.getElementById("searchInput").value = category;
@@ -662,6 +682,8 @@ searchJobs();
 
 }
 
+
+/* PROVINCE SEARCH */
 
 function provinceSearch(province) {
 
@@ -675,3 +697,4 @@ searchJobs();
 
 </body>
 </html>
+```
