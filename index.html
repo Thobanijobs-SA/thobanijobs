@@ -698,7 +698,20 @@ searchJobs();
 fetch('jobs.json')
   .then(response => response.json())
   .then(jobs => {
-    console.log('ThobaniJobs loaded jobs:', jobs);
+    const jobList = document.getElementById('jobList');
+
+    jobList.innerHTML = jobs.map(job => `
+      <div class="job">
+        <h3>${job.title}</h3>
+        <div class="company">${job.company}</div>
+        <div class="location">${job.location}</div>
+        <p>${job.description}</p>
+        <p><strong>${job.category}</strong> | ${job.type}</p>
+        <button class="apply" onclick="window.open('${job.apply}', '_blank')">
+          Apply Now
+        </button>
+      </div>
+    `).join('');
   })
   .catch(error => {
     console.error('Could not load jobs:', error);
