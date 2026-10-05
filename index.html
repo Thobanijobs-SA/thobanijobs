@@ -694,7 +694,16 @@ searchJobs();
 }
 
 </script>
-
+<script>
+fetch('jobs.json')
+  .then(response => response.json())
+  .then(jobs => {
+    console.log('ThobaniJobs loaded jobs:', jobs);
+  })
+  .catch(error => {
+    console.error('Could not load jobs:', error);
+  });
+</script>
 </body>
 </html>
 ```
