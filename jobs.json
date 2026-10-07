@@ -1,11 +1,19 @@
 [
   {
-    "title": "Junior Accountant",
-    "company": "Thobani Business Services",
-    "location": "Durban, KwaZulu-Natal",
-    "category": "Accounting",
-    "type": "Entry Level",
-    "description": "Junior accounting opportunity in Durban.",
-    "apply": "apply": "https://tally.so/r/WOx64N?job=Junior%20Accountant"
+    "title": "Office Aid: IT and Office Services",
+    "company": "Department of Employment and Labour",
+    "location": "East London, Eastern Cape",
+    "category": "Government",
+    "type": "Full Time",
+    "salary": "R170,226 per annum",
+    "closingDate": "2026-10-16",
+    "description": "The Department of Employment and Labour is recruiting an Office Aid: IT and Office Services in East London. The role includes supporting a clean office environment, food services, stock distribution and messenger functions.",
+    "requirements": [
+      "Grade 10 / Standard 8",
+      "No experience required",
+      "Knowledge of cleaning, catering and office practices",
+      "Good interpersonal and communication skills"
+    ],
+    "apply": "apply": "https://www.labour.gov.za/vacancies"
   }
 ]
