@@ -695,6 +695,7 @@ searchJobs();
 
 </script>
 <script>
+window.addEventListener('DOMContentLoaded', function() {
 fetch('jobs.json')
   .then(response => response.json())
   .then(jobs => {
@@ -715,7 +716,7 @@ fetch('jobs.json')
   })
   .catch(error => {
     console.error('Could not load jobs:', error);
-  });
+  });});
 </script>
 </body>
 </html>
