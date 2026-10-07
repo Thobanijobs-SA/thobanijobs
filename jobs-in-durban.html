@@ -184,6 +184,45 @@
   <p>© 2026 ThobaniJobs</p>
   <p>Jobs • Learnerships • Internships • Remote Opportunities</p>
 </footer>
+<div class="section">
+  <h2>Latest Durban Jobs</h2>
+  <div id="durbanJobs">
+    <p>Loading latest jobs...</p>
+  </div>
+</div>
 
+<script>
+fetch('jobs.json')
+  .then(response => response.json())
+  .then(jobs => {
+    const durbanJobs = jobs.filter(job =>
+      job.location.toLowerCase().includes('durban') ||
+      job.location.toLowerCase().includes('kwazulu-natal')
+    );
+
+    const container = document.getElementById('durbanJobs');
+
+    if (durbanJobs.length === 0) {
+      container.innerHTML = '<p>No Durban vacancies are currently listed. Please check again soon.</p>';
+      return;
+    }
+
+    container.innerHTML = durbanJobs.map(job => `
+      <div class="category">
+        <h3>${job.title}</h3>
+        <p><strong>${job.company}</strong></p>
+        <p>📍 ${job.location}</p>
+        <p>${job.description}</p>
+        <p><strong>Category:</strong> ${job.category}</p>
+        <p><strong>Type:</strong> ${job.type}</p>
+        <a class="button" href="${job.apply}" target="_blank">Apply Now</a>
+      </div>
+    `).join('');
+  })
+  .catch(error => {
+    document.getElementById('durbanJobs').innerHTML =
+      '<p>Unable to load jobs right now. Please try again later.</p>';
+  });
+</script>
 </body>
 </html>
