@@ -200,12 +200,9 @@ fetch('jobs.json')
       job.location.toLowerCase().includes('kwazulu-natal')
     );
 
-    const container = document.getElementById('durbanJobs');
-
-    if (durbanJobs.length === 0) {
-      container.innerHTML = '<p>No Durban vacancies are currently listed. Please check again soon.</p>';
-      return;
-    }
+    const durbanJobs = jobs.filter(job =>
+  job.location.toLowerCase().includes('durban')
+);
 
     container.innerHTML = durbanJobs.map(job => `
       <div class="category">
